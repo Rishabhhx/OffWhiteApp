@@ -9,22 +9,35 @@ import SwiftUI
 
 struct ManWomanList: View {
     @State var section: StoreSections = .man
+    @State var pushToDetail: Bool = false
+    @State var selectedItem: ManWomanModel = ManWomanModel(image: "", title: "", price: "", rating: "", imageArr: [], colorArr: [], sizeArr: [], descritption: "")
     var columns: [GridItem] = [GridItem(.flexible(), spacing: 20), GridItem(.flexible())]
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(section == .man ? manObj.indices : womanObj.indices , id: \.self) { item in
                     ManWomanCell(object: section == .man ? manObj[item] : womanObj[item])
+                        .onTapGesture {
+                            self.selectedItem = section == .man ? manObj[item] : womanObj[item]
+                            pushToDetail.toggle()
+                        }
                 }
+            }
+            .navigationDestination(isPresented: $pushToDetail) {
+                ManWomanDetailView(manObj: selectedItem)
             }
 //            .padding(.top, 10)
             .padding(.horizontal, 30)
         }
+
     }
 }
 
 struct ManWomanCollection: View {
+    @State var pushToDetail: Bool = false
     let manWomanObj = manObj + womanObj
+    @State var selectedItem: ManWomanModel = ManWomanModel(image: "", title: "", price: "", rating: "", imageArr: [], colorArr: [], sizeArr: [], descritption: "")
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             VStack(alignment: .leading) {
@@ -40,10 +53,17 @@ struct ManWomanCollection: View {
                 LazyHStack(spacing: 18) {
                     ForEach(manWomanObj.shuffled(), id: \.self) { obj in
                         ManWomanCell(object: obj)
+                            .onTapGesture {
+                                self.selectedItem = obj
+                                pushToDetail.toggle()
+                            }
                     }
                 }
                 .padding(.horizontal, 30)
             }
+        }
+        .navigationDestination(isPresented: $pushToDetail) {
+            ManWomanDetailView(manObj: selectedItem)
         }
         .padding(.top, 10)
     }
@@ -56,7 +76,7 @@ struct ManWomanCollection_Previews: PreviewProvider {
 }
 
 struct ManWomanCell: View {
-    var object: ManWomanModel = ManWomanModel(image: "man1", title: "Monalise Hoodie", price: "680", rating: "5.0")
+    var object: ManWomanModel = ManWomanModel(image: "", title: "", price: "", rating: "", imageArr: [], colorArr: [], sizeArr: [], descritption: "")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {

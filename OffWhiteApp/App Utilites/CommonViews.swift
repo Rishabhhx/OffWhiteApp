@@ -12,6 +12,7 @@ struct BaseCustomModifier: ViewModifier {
         return content
             .ignoresSafeArea(.keyboard)
             .hideKeyboardWhenTappedAround()
+            .navigationBarHidden(true)
             .navigationTitle("")
             .toolbar(.hidden)
     }

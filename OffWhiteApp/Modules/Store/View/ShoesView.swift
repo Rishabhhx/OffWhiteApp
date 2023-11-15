@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ShoesList: View {
+    @State var pushToDetail: Bool = false
+    @State var selectedItem: ShoesModel = ShoesModel(image: "shoe1", title1: "White", title2: "“AIRFORCE 1”", subTitle1: "Off-White x Nike", subTitle2: "Oregon © 2022", price: "580",imageArr: ["shoe1detail1","shoe1detail2","shoe1detail3","shoe1detail4"], sizeArr: ["37","38","39","40"])
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             LazyVStack(spacing: 18) {
                 ForEach(shoesObj.indices, id: \.self) { item in
                     ShoesCell(object: shoesObj[item])
+                        .onTapGesture {
+                            selectedItem = shoesObj[item]
+                            pushToDetail.toggle()
+                        }
                 }
+            }
+            .navigationDestination(isPresented: $pushToDetail) {
+                ManWomanDetailView(shoeObj: selectedItem, isShoe: true)
             }
             .padding(.horizontal, 30)
             .padding(.top, 10)
@@ -23,6 +33,9 @@ struct ShoesList: View {
     
     
     struct ShoesCollection: View {
+        @State var pushToDetail: Bool = false
+        @State var selectedItem: ShoesModel = ShoesModel(image: "shoe1", title1: "White", title2: "“AIRFORCE 1”", subTitle1: "Off-White x Nike", subTitle2: "Oregon © 2022", price: "580",imageArr: ["shoe1detail1","shoe1detail2","shoe1detail3","shoe1detail4"], sizeArr: ["37","38","39","40"])
+
         var body: some View {
             VStack(alignment: .leading, spacing: 10) {
                 VStack(alignment: .leading) {
@@ -37,9 +50,16 @@ struct ShoesList: View {
                 LazyVStack(spacing: 18) {
                     ForEach(0..<3, id: \.self) { item in
                         ShoesCell(object: shoesObj[item])
+                            .onTapGesture {
+                                selectedItem = shoesObj[item]
+                                pushToDetail.toggle()
+                            }
                     }
                 }
                 .padding(.horizontal, 30)
+            }
+            .navigationDestination(isPresented: $pushToDetail) {
+                ManWomanDetailView(shoeObj: selectedItem, isShoe: true)
             }
             .padding(.top, 10)
         }
@@ -50,7 +70,7 @@ struct ShoesList: View {
         }
     }
     struct ShoesCell: View {
-        var object: ShoesModel = ShoesModel(image: "shoe1", title1: "White", title2: "“AIRFORCE 1”", subTitle1: "Off-White x Nike", subTitle2: "Oregon © 2022", price: "580")
+        var object: ShoesModel = ShoesModel(image: "shoe1", title1: "White", title2: "“AIRFORCE 1”", subTitle1: "Off-White x Nike", subTitle2: "Oregon © 2022", price: "580",imageArr: ["shoe1detail1","shoe1detail2","shoe1detail3","shoe1detail4"], sizeArr: ["37","38","39","40"])
         
         var body: some View {
             VStack(alignment: .leading) {

@@ -13,7 +13,7 @@ struct OffWhiteAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ManWomanDetailView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
