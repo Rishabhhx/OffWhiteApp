@@ -42,7 +42,7 @@ struct MainView: View {
         NavigationStack {
             ZStack {
                 VStack(alignment: .leading) {
-                    HomeHeader(showSideMenu: $showSideMenu, image: (selectedMenu == .options || homeType == .brand) ? "menuWhite" : "menu")
+                    HomeHeader(showSideMenu: $showSideMenu, title: selectedMenu == .cart ? "“CART”" : "Off-White\u{2122}", image: (selectedMenu == .options || homeType == .brand) ? "menuWhite" : "menu")
                         .foregroundColor((selectedMenu == .options || homeType == .brand) ? .white : .black)
                     switch selectedMenu {
                     case .home:
@@ -55,14 +55,14 @@ struct MainView: View {
                         EmptyView()
                         Spacer()
                     case .cart:
-                        EmptyView()
+                        CartView()
                         Spacer()
                     case .options:
                         OptionsView()
                     }
                 }
                 .animation(nil, value: UUID())
-                if !(selectedMenu == .options) {
+                if (selectedMenu == .home) {
                         MainSwitchView(homeType: $homeType,selectedSection: $selectedSection, selectedBrandSection: $selectedBrandSection)
                         .offset(y: hideMainButtons ? UIScreen.main.bounds.height : UIScreen.main.bounds.height/3 - 40)
                 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B7F8862B136787005459D0 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F8852B136787005459D0 /* CartView.swift */; };
+		18B7F88A2B138FB7005459D0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 18B7F8892B138FB7005459D0 /* Lottie */; };
+		18B7F88C2B13902A005459D0 /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F88B2B13902A005459D0 /* LottieFile.swift */; };
+		18B7F88E2B139690005459D0 /* emptyCart.json in Resources */ = {isa = PBXBuildFile; fileRef = 18B7F88D2B139690005459D0 /* emptyCart.json */; };
+		18B7F8922B139F30005459D0 /* addCart.json in Resources */ = {isa = PBXBuildFile; fileRef = 18B7F8912B139F30005459D0 /* addCart.json */; };
 		8425524A2AAF57C3007A4B34 /* AboutBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842552492AAF57C3007A4B34 /* AboutBrandView.swift */; };
 		8425524C2AAF6194007A4B34 /* ContactBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425524B2AAF6194007A4B34 /* ContactBrandView.swift */; };
 		843B0E532AAC8D7200B44231 /* StyleKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B0E522AAC8D7200B44231 /* StyleKitModel.swift */; };
@@ -57,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18B7F8852B136787005459D0 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		18B7F88B2B13902A005459D0 /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
+		18B7F88D2B139690005459D0 /* emptyCart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyCart.json; sourceTree = "<group>"; };
+		18B7F8912B139F30005459D0 /* addCart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addCart.json; sourceTree = "<group>"; };
 		842552492AAF57C3007A4B34 /* AboutBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBrandView.swift; sourceTree = "<group>"; };
 		8425524B2AAF6194007A4B34 /* ContactBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBrandView.swift; sourceTree = "<group>"; };
 		843B0E522AAC8D7200B44231 /* StyleKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKitModel.swift; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B7F88A2B138FB7005459D0 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18B7F8872B13678B005459D0 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				18B7F8852B136787005459D0 /* CartView.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		843B0E5F2AACF41200B44231 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +261,8 @@
 			children = (
 				84E85D282AAA4A530030E100 /* Launch Screen.storyboard */,
 				84E85D012AAA472C0030E100 /* Assets.xcassets */,
+				18B7F88D2B139690005459D0 /* emptyCart.json */,
+				18B7F8912B139F30005459D0 /* addCart.json */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -254,6 +274,7 @@
 				843B0E692AADD69100B44231 /* Main */,
 				843B0E6A2AADD69E00B44231 /* Brand */,
 				84E85D3C2AAB5A040030E100 /* Store */,
+				18B7F8872B13678B005459D0 /* Cart */,
 				843B0E682AADB5EC00B44231 /* Options */,
 			);
 			path = Modules;
@@ -263,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				84E85D2D2AAB29F30030E100 /* Extensions.swift */,
+				18B7F88B2B13902A005459D0 /* LottieFile.swift */,
 				84E85D2F2AAB29F30030E100 /* CommonViews.swift */,
 			);
 			path = "App Utilites";
@@ -302,6 +324,9 @@
 			dependencies = (
 			);
 			name = OffWhiteApp;
+			packageProductDependencies = (
+				18B7F8892B138FB7005459D0 /* Lottie */,
+			);
 			productName = OffWhiteApp;
 			productReference = 84E85CF52AAA472B0030E100 /* OffWhiteApp.app */;
 			productType = "com.apple.product-type.application";
@@ -374,6 +399,9 @@
 				Base,
 			);
 			mainGroup = 84E85CEC2AAA472B0030E100;
+			packageReferences = (
+				18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 84E85CF62AAA472B0030E100 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -391,7 +419,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E85D292AAA4A530030E100 /* Launch Screen.storyboard in Resources */,
+				18B7F88E2B139690005459D0 /* emptyCart.json in Resources */,
 				84E85D062AAA472C0030E100 /* Preview Assets.xcassets in Resources */,
+				18B7F8922B139F30005459D0 /* addCart.json in Resources */,
 				84E85D022AAA472C0030E100 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +467,9 @@
 				843B0E622AACF47A00B44231 /* SideMenuView.swift in Sources */,
 				843B0E652AADA1E100B44231 /* StoreBrandView.swift in Sources */,
 				843B0E672AADB5E700B44231 /* OptionsView.swift in Sources */,
+				18B7F8862B136787005459D0 /* CartView.swift in Sources */,
 				843B0E5C2AACCA7B00B44231 /* ShoesView.swift in Sources */,
+				18B7F88C2B13902A005459D0 /* LottieFile.swift in Sources */,
 				843B0E552AAC8D9600B44231 /* ManWomanModel.swift in Sources */,
 				843B0E702AADF0A800B44231 /* StoriesModel.swift in Sources */,
 				84E18D612AB7680300083B8F /* ManWomanDetailView.swift in Sources */,
@@ -796,6 +828,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18B7F8892B138FB7005459D0 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		84E85CFC2AAA472B0030E100 /* OffWhiteApp.xcdatamodeld */ = {

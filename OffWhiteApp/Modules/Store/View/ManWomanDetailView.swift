@@ -17,6 +17,7 @@ struct ManWomanDetailView: View {
     @State var pageIndex = 0
     @State var isExpanded : Bool = true
     @State var isShoe: Bool = false
+    @State var showCartAnimation : Bool = false
     
     var body: some View {
         ZStack {
@@ -57,8 +58,18 @@ struct ManWomanDetailView: View {
             VStack {
                 Spacer()
                 InfoBarView(pageIndex: $pageIndex, selectedColor: $selectedColor,selectedSize: $selectedSize, isExpanded: $isExpanded, isShoe: $isShoe, colorArr: manObj.colorArr, sizeArr: isShoe ? shoeObj.sizeArr : manObj.sizeArr,manObj: manObj,shoeObj: shoeObj)
-                BottomButtons(isShoe: $isShoe)
+                BottomButtons(isShoe: $isShoe, manObj: manObj, shoeObj: shoeObj, selectedColor: $selectedColor, selectedSize: $selectedSize, showCartAnimation: $showCartAnimation)
             }
+                ZStack {
+                    Rectangle()
+                        .opacity(showCartAnimation ? 0.7 : 0)
+                        .ignoresSafeArea()
+                    if showCartAnimation {
+                        LottieView(lottieFile: "addCart", loopMode: .playOnce)
+                            .ignoresSafeArea()
+                    }
+                }
+                .animation(.linear, value: showCartAnimation)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .modifier(BaseCustomModifier())
@@ -248,7 +259,12 @@ struct SizeSelectButtonView: View {
 
 struct BottomButtons: View {
     @Binding var isShoe: Bool
-
+    var manObj: ManWomanModel = ManWomanModel(image: "man1", title: "Monalise Hoodie", price: "680", rating: "5.0",imageArr: ["man1detail1","man1detail2","man1detail3","man1detail4"], colorArr: [.white,.black], sizeArr: ["XXS","XS","S","L","XL"],descritption: "Long sleeves hooded sweatshirt in white featuring the blue Monalisa on the front and black diagonals on the sleeves. ")
+    var shoeObj: ShoesModel = ShoesModel(image: "shoe1", title1: "White", title2: "“AIRFORCE 1”", subTitle1: "Off-White x Nike", subTitle2: "Oregon © 2022", price: "580",imageArr: ["shoe1detail1","shoe1detail2","shoe1detail3","shoe1detail4"], sizeArr: ["37","38","39","40"])
+    @Binding var selectedColor: Color
+    @Binding var selectedSize: String
+    @Binding var showCartAnimation: Bool
+    
     var body: some View {
         HStack {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -263,7 +279,22 @@ struct BottomButtons: View {
             })
             .buttonStyle(.plain)
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                if isShoe {
+                    cartObj.append(ManWomanModel(image: shoeObj.image, title: shoeObj.title1, price: shoeObj.price, rating: "", imageArr: shoeObj.imageArr, colorArr: [], sizeArr: shoeObj.sizeArr, descritption: shoeObj.title2, selectedSize: selectedSize, selectedColor: selectedColor))
+                } else {
+                    var obj = manObj
+                    obj.selectedSize = self.selectedSize
+                    obj.selectedColor = self.selectedColor
+                    withAnimation() {
+                        showCartAnimation = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+                            showCartAnimation = false
+                        }
+                    }
+                    cartObj.append(obj)
+                }
+            }, label: {
                 Text("add to cart")
                     .font(.custom("Helvetica", size: 10))
                     .fontWeight(.regular)

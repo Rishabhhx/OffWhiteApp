@@ -17,7 +17,11 @@ struct ManWomanModel: Hashable {
     var colorArr: [Color]
     var sizeArr: [String]
     var descritption: String
+    var selectedSize: String?
+    var selectedColor: Color?
 }
+var cartObj: [ManWomanModel] = []
+
 
 var manObj: [ManWomanModel] = [ManWomanModel(image: "man1", title: "Monalise Hoodie", price: "680", rating: "5.0",imageArr: ["man1detail1","man1detail2","man1detail3","man1detail4"], colorArr: [.white,.black], sizeArr: ["XXS","XS","S","L","XL"],descritption: "Long sleeves hooded sweatshirt in white featuring the blue Monalisa on the front and black diagonals on the sleeves. "), ManWomanModel(image: "man2", title: "Arrows Sweat", price: "620", rating: "4.8",imageArr: ["man2detail1","man2detail2","man2detail3","man2detail4"], colorArr: [.black], sizeArr: ["XXS","XS","S","L","XL"],descritption: "Black sweatshorts with Off-White™ logo on the front and Caravaggio arrows at back on one side.Elasticized waistband. Side pockets. Raw-edged."),ManWomanModel(image: "man3", title: "Style Hoodie", price: "680", rating: "5.0",imageArr: ["man3detail1","man3detail2","man3detail3","man3detail4"], colorArr: [.black], sizeArr: ["XXS","XS","S","L","XL"],descritption: "Black sweatshorts with Off-White™ logo on the front and Caravaggio arrows at back on one side.Elasticized waistband. Side pockets. Raw-edged."), ManWomanModel(image: "man4", title: "Active Shirt", price: "500", rating: "3.8",imageArr: ["man4detail1","man4detail2","man4detail3","man4detail4"], colorArr: [.white,.black], sizeArr: ["XXS","XS","S","L","XL"],descritption: "Black sweatshorts with Off-White™ logo on the front and Caravaggio arrows at back on one side.Elasticized waistband. Side pockets. Raw-edged.")]
 
