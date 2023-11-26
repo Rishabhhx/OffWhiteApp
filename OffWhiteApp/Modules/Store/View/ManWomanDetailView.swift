@@ -16,7 +16,7 @@ struct ManWomanDetailView: View {
     @State var selectedSize: String = "M"
     @State var pageIndex = 0
     @State var isExpanded : Bool = true
-    @State var isShoe: Bool = true
+    @State var isShoe: Bool = false
     
     var body: some View {
         ZStack {
@@ -157,7 +157,7 @@ struct InfoBarView: View {
                 }
             }
             .animation(.easeIn(duration: 0.2), value: pageIndex)
-            DetailActionButtons(isExpanded: $isExpanded, isShoe: $isShoe)
+            DetailActionButtons(isExpanded: $isExpanded, isShoe: $isShoe, pageIndex: $pageIndex)
             CardInfoView(selectedColor: $selectedColor, selectedSize: $selectedSize, isExpanded: $isExpanded,colorArr: colorArr, sizeArr: sizeArr, manObj: manObj,shoeObj:shoeObj, isShoe: $isShoe)
         }
         .padding(.horizontal, 30)
@@ -167,6 +167,7 @@ struct InfoBarView: View {
 struct DetailActionButtons: View {
     @Binding var isExpanded : Bool
     @Binding var isShoe: Bool
+    @Binding var pageIndex: Int
 
     var body: some View {
         HStack(alignment: .center) {
@@ -187,7 +188,9 @@ struct DetailActionButtons: View {
                     DetailActionButtonView(title: "save",image: "saveBlack",next: false, isShoe: $isShoe)
                 })
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    pageIndex = (pageIndex < 3) ? (pageIndex + 1) : 0
+                }, label: {
                     DetailActionButtonView(title: "next",image: "expand",next: true, isShoe: $isShoe)
                 })
             } else {

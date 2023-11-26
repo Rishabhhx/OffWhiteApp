@@ -13,7 +13,8 @@ struct StoreBrandView: View {
     @Binding var selectedBrandSection : BrandSections
     @Binding var hideMainButtons: Bool
     @State var startingOffset: CGFloat = 0
-    
+    @State private var viewDidLoad = false
+
     var body: some View {
         VStack(spacing: 0) {
             SectionsView(selectedSection: $selectedSection, selectedBrandSection: $selectedBrandSection, homeType: $homeType, hideMainButtons: $hideMainButtons)
@@ -24,7 +25,7 @@ struct StoreBrandView: View {
                             .frame(width: 0, height: 0)
                             .onChange(of: geo.frame(in: .global).midY) { oldValue, newValue in
                                 print("old\(oldValue)new\(newValue)")
-                                if (oldValue >= newValue && newValue < startingOffset) {
+                                if ((oldValue >= newValue && newValue < startingOffset)) {
                                     hideMainButtons = true
                                 } else {
                                     hideMainButtons = false
@@ -32,8 +33,12 @@ struct StoreBrandView: View {
                             }
                             .id(0)
                             .onAppear() {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    startingOffset = geo.frame(in: .global).midY
+                                if viewDidLoad == false {
+                                    viewDidLoad = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        startingOffset = geo.frame(in: .global).midY
+                                    }
+                                    print("viewDidLoad")
                                 }
                             }
                     }
