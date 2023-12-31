@@ -31,6 +31,7 @@ struct StyleKitCell: View {
             Image(object.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 270)
             VStack {
                 Image("upperOpq")
                 Spacer()

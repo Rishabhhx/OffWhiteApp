@@ -286,13 +286,13 @@ struct BottomButtons: View {
                     var obj = manObj
                     obj.selectedSize = self.selectedSize
                     obj.selectedColor = self.selectedColor
-                    withAnimation() {
-                        showCartAnimation = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
-                            showCartAnimation = false
-                        }
-                    }
                     cartObj.append(obj)
+                }
+                withAnimation() {
+                    showCartAnimation = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+                        showCartAnimation = false
+                    }
                 }
             }, label: {
                 Text("add to cart")

@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18826D0F2B160E2B0044948A /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 18826D0E2B160E2B0044948A /* Shimmer */; };
 		18B7F8862B136787005459D0 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F8852B136787005459D0 /* CartView.swift */; };
 		18B7F88A2B138FB7005459D0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 18B7F8892B138FB7005459D0 /* Lottie */; };
 		18B7F88C2B13902A005459D0 /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F88B2B13902A005459D0 /* LottieFile.swift */; };
 		18B7F88E2B139690005459D0 /* emptyCart.json in Resources */ = {isa = PBXBuildFile; fileRef = 18B7F88D2B139690005459D0 /* emptyCart.json */; };
 		18B7F8922B139F30005459D0 /* addCart.json in Resources */ = {isa = PBXBuildFile; fileRef = 18B7F8912B139F30005459D0 /* addCart.json */; };
+		18F524F02B15CFEA009AF4D3 /* StyleKitsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F524EF2B15CFEA009AF4D3 /* StyleKitsDetailView.swift */; };
 		8425524A2AAF57C3007A4B34 /* AboutBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842552492AAF57C3007A4B34 /* AboutBrandView.swift */; };
 		8425524C2AAF6194007A4B34 /* ContactBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425524B2AAF6194007A4B34 /* ContactBrandView.swift */; };
 		843B0E532AAC8D7200B44231 /* StyleKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B0E522AAC8D7200B44231 /* StyleKitModel.swift */; };
@@ -66,6 +68,7 @@
 		18B7F88B2B13902A005459D0 /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
 		18B7F88D2B139690005459D0 /* emptyCart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyCart.json; sourceTree = "<group>"; };
 		18B7F8912B139F30005459D0 /* addCart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addCart.json; sourceTree = "<group>"; };
+		18F524EF2B15CFEA009AF4D3 /* StyleKitsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKitsDetailView.swift; sourceTree = "<group>"; };
 		842552492AAF57C3007A4B34 /* AboutBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBrandView.swift; sourceTree = "<group>"; };
 		8425524B2AAF6194007A4B34 /* ContactBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactBrandView.swift; sourceTree = "<group>"; };
 		843B0E522AAC8D7200B44231 /* StyleKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKitModel.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18826D0F2B160E2B0044948A /* Shimmer in Frameworks */,
 				18B7F88A2B138FB7005459D0 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				843B0E592AACCA1400B44231 /* ManWomanView.swift */,
+				18F524EF2B15CFEA009AF4D3 /* StyleKitsDetailView.swift */,
 				84E18D602AB7680300083B8F /* ManWomanDetailView.swift */,
 				843B0E5B2AACCA7B00B44231 /* ShoesView.swift */,
 				843B0E5D2AACCAA600B44231 /* StyleKitsView.swift */,
@@ -326,6 +331,7 @@
 			name = OffWhiteApp;
 			packageProductDependencies = (
 				18B7F8892B138FB7005459D0 /* Lottie */,
+				18826D0E2B160E2B0044948A /* Shimmer */,
 			);
 			productName = OffWhiteApp;
 			productReference = 84E85CF52AAA472B0030E100 /* OffWhiteApp.app */;
@@ -401,6 +407,7 @@
 			mainGroup = 84E85CEC2AAA472B0030E100;
 			packageReferences = (
 				18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				18826D0D2B160E2B0044948A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 84E85CF62AAA472B0030E100 /* Products */;
 			projectDirPath = "";
@@ -473,6 +480,7 @@
 				843B0E552AAC8D9600B44231 /* ManWomanModel.swift in Sources */,
 				843B0E702AADF0A800B44231 /* StoriesModel.swift in Sources */,
 				84E18D612AB7680300083B8F /* ManWomanDetailView.swift in Sources */,
+				18F524F02B15CFEA009AF4D3 /* StyleKitsDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +838,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		18826D0D2B160E2B0044948A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 		18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -841,6 +857,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		18826D0E2B160E2B0044948A /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18826D0D2B160E2B0044948A /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
 		18B7F8892B138FB7005459D0 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 18B7F8882B138FB7005459D0 /* XCRemoteSwiftPackageReference "lottie-spm" */;

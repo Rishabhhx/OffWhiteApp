@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Shimmer
 struct StoreBrandView: View {
     @Binding var homeType: HomeType
     @Binding var selectedSection : StoreSections
